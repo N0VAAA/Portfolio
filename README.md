@@ -1,9 +1,24 @@
-```md
 # Personal Portfolio — ASP.NET Core
 
 Backend-focused portfolio built with **ASP.NET Core MVC**.
 
-This project demonstrates clean structure, service abstraction, and secure HTTP practices using modern .NET.
+This project demonstrates clean architecture principles, service abstraction, and secure HTTP configuration using modern .NET practices.
+
+---
+
+## Overview
+
+This portfolio is structured as a small production-style ASP.NET Core application rather than a static website.
+
+It applies:
+
+- Clear separation of concerns
+- Dependency Injection
+- Layered architecture
+- HTTP security middleware
+- Health monitoring
+
+The goal is to showcase backend engineering practices in a simple, maintainable structure.
 
 ---
 
@@ -11,7 +26,7 @@ This project demonstrates clean structure, service abstraction, and secure HTTP 
 
 - .NET 10
 - ASP.NET Core MVC
-- Blazor Server components (for reusable UI)
+- Blazor Server Components
 - Dependency Injection
 - Bootstrap 5
 - Font Awesome
@@ -20,19 +35,41 @@ This project demonstrates clean structure, service abstraction, and secure HTTP 
 
 ## Architecture
 
-The application follows a simple layered structure:
+The project follows a layered structure:
 
-- **Controllers** → Orchestration only (no business logic)
-- **Services** → Data access abstraction via interfaces
-- **Models** → Domain entities and ViewModels
-- **Middleware** → Security headers
-- **Views / Components** → Presentation layer
+```
 
-Services return `IReadOnlyList<T>` to prevent external mutation.
+Presentation
+├── Views (Razor)
+├── Blazor Components
+└── Static assets (wwwroot)
 
-A custom middleware adds HTTP security headers.
+Application
+├── Controllers
+└── ViewModels
 
-Health endpoint available at:
+Services
+├── IProjectService
+└── ISkillService
+
+Domain
+├── Project
+├── Skill
+└── Supporting models
+
+Infrastructure
+└── Middleware (Security Headers)
+
+```
+
+### Key Design Choices
+
+- Controllers contain **no business logic**
+- Services are injected via **interfaces**
+- Collections are exposed as `IReadOnlyList<T>`
+- HTTP security headers handled through dedicated middleware
+- Health endpoint available at:
+
 ```
 
 /health
@@ -47,39 +84,33 @@ Health endpoint available at:
 
 - .NET 10 SDK
 
-Check version:
+Check your version:
 
-```
-
+```bash
 dotnet --version
-
 ```
 
-### Start the app
+### Start the application
 
-```
-
+```bash
 dotnet restore
 dotnet run --project PersonalPortfolio/PersonalPortfolio.csproj
-
 ```
 
-Default URL:
+## What This Project Demonstrates
 
-```
-
-[http://localhost:5206](http://localhost:5206)
-
-```
+- REST-oriented backend structure
+- Clean separation between layers
+- Secure HTTP configuration
+- Maintainable and extensible architecture
+- Production-style ASP.NET Core setup
 
 ---
 
-## Purpose
+## Future Improvements
 
-This project showcases:
-
-- REST-oriented backend structure
-- Clean separation of concerns
-- Secure HTTP configuration
-- Maintainable ASP.NET Core architecture
-```
+- Convert services to async (`Task<IReadOnlyList<T>>`)
+- Add unit tests (xUnit + Moq)
+- Introduce a database layer (EF Core + PostgreSQL)
+- Add structured logging (Serilog)
+- Implement Content Security Policy (CSP)

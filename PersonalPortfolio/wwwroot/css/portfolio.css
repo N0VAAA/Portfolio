@@ -1,0 +1,409 @@
+/* ===========================
+   VARIABLES
+=========================== */
+:root {
+	--bg-primary: #0f1117;
+	--bg-secondary: #161b27;
+	--bg-card: #1c2333;
+	--text-primary: #e2e8f0;
+	--text-secondary: #94a3b8;
+	--accent-blue: #60a5fa;
+	--accent-blue-dim: rgba(96, 165, 250, 0.15);
+	--border-subtle: rgba(255, 255, 255, 0.07);
+	--font-main: "Inter", "Segoe UI", sans-serif;
+	--font-mono: "IBM Plex Mono", "Fira Code", monospace;
+}
+
+/* ===========================
+   BASE
+=========================== */
+body {
+	font-family: var(--font-main);
+	background-color: var(--bg-primary);
+	color: var(--text-primary);
+	line-height: 1.7;
+}
+
+.bg-dark-subtle {
+	background-color: var(--bg-secondary) !important;
+}
+
+.section-padding {
+	padding: 80px 0;
+}
+
+.section-title {
+	font-size: 1.75rem;
+	font-weight: 700;
+	color: var(--text-primary);
+	letter-spacing: -0.02em;
+}
+
+.section-subtitle {
+	color: var(--text-secondary);
+	font-size: 1rem;
+}
+
+/* ===========================
+   NAVBAR
+=========================== */
+.navbar {
+	background-color: rgba(15, 17, 23, 0.92) !important;
+	backdrop-filter: blur(12px);
+	border-bottom: 1px solid var(--border-subtle);
+}
+
+.navbar-brand {
+	font-family: var(--font-mono);
+	color: var(--accent-blue) !important;
+	font-size: 1rem;
+	letter-spacing: 0.02em;
+}
+
+.navbar-brand-accent {
+	color: #94a3b8;
+}
+
+.nav-link {
+	color: var(--text-secondary) !important;
+	font-size: 0.9rem;
+	transition: color 0.2s;
+}
+
+.nav-link:hover {
+	color: var(--text-primary) !important;
+}
+
+/* ===========================
+   HERO
+=========================== */
+.hero-section {
+	background-color: var(--bg-primary);
+	padding: 140px 0 100px;
+	min-height: 100vh;
+	display: flex;
+	align-items: center;
+	border-bottom: 1px solid var(--border-subtle);
+}
+
+.hero-label {
+	font-family: var(--font-mono);
+	font-size: 0.8rem;
+	color: var(--accent-blue);
+	text-transform: uppercase;
+	letter-spacing: 0.12em;
+}
+
+.hero-section h1 {
+	font-size: 3.5rem;
+	font-weight: 800;
+	letter-spacing: -0.03em;
+	color: var(--text-primary);
+}
+
+.hero-description {
+	color: var(--text-secondary);
+	font-size: 1.05rem;
+	max-width: 560px;
+	line-height: 1.8;
+}
+
+.hero-description strong {
+	color: var(--text-primary);
+	font-weight: 600;
+}
+
+/* ===========================
+   PROFILE BUBBLE
+=========================== */
+.profile-bubble {
+	width: 260px;
+	height: 260px;
+	border-radius: 50%;
+	overflow: hidden;
+	border: 2px solid var(--border-subtle);
+	box-shadow:
+		0 0 0 6px rgba(96, 165, 250, 0.06),
+		0 0 40px rgba(96, 165, 250, 0.08);
+	flex-shrink: 0;
+}
+
+.profile-bubble img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	display: block;
+}
+
+/* ===========================
+   STACK BADGES (hero)
+=========================== */
+.stack-line {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 8px;
+}
+
+.stack-badge {
+	font-family: var(--font-mono);
+	font-size: 0.72rem;
+	padding: 4px 10px;
+	border-radius: 4px;
+	font-weight: 500;
+	letter-spacing: 0.02em;
+}
+
+.badge-csharp {
+	background: rgba(104, 50, 194, 0.2);
+	color: #b69df8;
+	border: 1px solid rgba(104, 50, 194, 0.4);
+}
+.badge-dotnet {
+	background: rgba(96, 165, 250, 0.12);
+	color: #93c5fd;
+	border: 1px solid rgba(96, 165, 250, 0.3);
+}
+.badge-ef {
+	background: rgba(52, 211, 153, 0.12);
+	color: #6ee7b7;
+	border: 1px solid rgba(52, 211, 153, 0.3);
+}
+.badge-pg {
+	background: rgba(51, 103, 145, 0.25);
+	color: #7dd3fc;
+	border: 1px solid rgba(51, 103, 145, 0.5);
+}
+.badge-jwt {
+	background: rgba(251, 146, 60, 0.15);
+	color: #fdba74;
+	border: 1px solid rgba(251, 146, 60, 0.3);
+}
+.badge-rest {
+	background: rgba(244, 114, 182, 0.12);
+	color: #f9a8d4;
+	border: 1px solid rgba(244, 114, 182, 0.25);
+}
+.badge-arch {
+	background: rgba(148, 163, 184, 0.1);
+	color: #cbd5e1;
+	border: 1px solid rgba(148, 163, 184, 0.2);
+}
+.badge-test {
+	background: rgba(52, 211, 153, 0.08);
+	color: #a7f3d0;
+	border: 1px solid rgba(52, 211, 153, 0.2);
+}
+
+/* ===========================
+   HERO BUTTONS
+   Fix: explicit color on all states so Bootstrap never overrides to white-on-white
+=========================== */
+.btn-hero {
+	display: inline-flex;
+	align-items: center;
+	background-color: var(--accent-blue);
+	color: #0f1117 !important; /* force dark text — fixes disappearing text on hover */
+	border: none;
+	padding: 10px 22px;
+	font-size: 0.9rem;
+	font-weight: 600;
+	border-radius: 6px;
+	text-decoration: none;
+	transition: background-color 0.2s;
+}
+
+.btn-hero:hover,
+.btn-hero:focus,
+.btn-hero:active {
+	background-color: #93c5fd; /* slightly lighter blue on hover */
+	color: #0f1117 !important; /* keep text dark — this was the bug */
+}
+
+.btn-hero-outline {
+	display: inline-flex;
+	align-items: center;
+	background: transparent;
+	color: var(--text-secondary) !important;
+	border: 1px solid var(--border-subtle);
+	padding: 10px 22px;
+	font-size: 0.9rem;
+	border-radius: 6px;
+	text-decoration: none;
+	transition:
+		border-color 0.2s,
+		color 0.2s;
+}
+
+.btn-hero-outline:hover,
+.btn-hero-outline:focus {
+	border-color: var(--accent-blue);
+	color: var(--accent-blue) !important;
+}
+
+/* ===========================
+   PROJECT CARDS
+=========================== */
+.project-card {
+	background-color: var(--bg-card);
+	border: 1px solid var(--border-subtle);
+	border-radius: 10px;
+	overflow: hidden;
+	transition:
+		border-color 0.2s,
+		transform 0.2s;
+}
+
+.project-card:hover {
+	border-color: rgba(96, 165, 250, 0.3);
+	transform: translateY(-3px);
+}
+
+.card-accent {
+	height: 3px;
+	width: 100%;
+}
+
+.accent-auth {
+	background: linear-gradient(90deg, #fb923c, #f97316);
+}
+.accent-books {
+	background: linear-gradient(90deg, #60a5fa, #3b82f6);
+}
+.accent-bitly {
+	background: linear-gradient(90deg, #34d399, #10b981);
+}
+.accent-portfolio {
+	background: linear-gradient(90deg, #a78bfa, #7c3aed);
+}
+
+.card-title {
+	color: var(--text-primary);
+	font-size: 1rem;
+	font-weight: 700;
+}
+
+.card-text {
+	color: var(--text-secondary);
+	font-size: 0.875rem;
+	line-height: 1.7;
+}
+
+.project-type-badge {
+	font-family: var(--font-mono);
+	font-size: 0.68rem;
+	color: var(--text-secondary);
+	border: 1px solid var(--border-subtle);
+	padding: 2px 8px;
+	border-radius: 20px;
+	white-space: nowrap;
+}
+
+.tech-highlights {
+	border-left: 2px solid var(--border-subtle);
+	padding-left: 12px;
+}
+
+.tech-point {
+	font-size: 0.8rem;
+	color: var(--text-secondary);
+	margin-bottom: 6px;
+	line-height: 1.5;
+}
+
+.tech-point i {
+	color: var(--accent-blue);
+	font-size: 0.7rem;
+}
+
+.tech-badge {
+	font-family: var(--font-mono);
+	font-size: 0.68rem;
+	background: rgba(96, 165, 250, 0.08);
+	color: var(--text-secondary);
+	border: 1px solid var(--border-subtle);
+	padding: 2px 8px;
+	border-radius: 4px;
+	display: inline-block;
+	margin: 2px 2px 2px 0;
+}
+
+.btn-card {
+	font-size: 0.8rem;
+	color: var(--text-secondary);
+	border: 1px solid var(--border-subtle);
+	background: transparent;
+	padding: 5px 14px;
+	border-radius: 5px;
+	transition:
+		color 0.2s,
+		border-color 0.2s;
+	text-decoration: none;
+	display: inline-flex;
+	align-items: center;
+}
+
+.btn-card:hover {
+	color: var(--accent-blue);
+	border-color: var(--accent-blue);
+}
+
+/* ===========================
+   CONTACT
+=========================== */
+.contact-section {
+	border-top: 1px solid var(--border-subtle);
+}
+
+.contact-links {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 16px;
+	flex-wrap: wrap;
+}
+
+.contact-link {
+	color: var(--text-secondary);
+	text-decoration: none;
+	font-size: 0.95rem;
+	transition: color 0.2s;
+}
+
+.contact-link:hover {
+	color: var(--accent-blue);
+}
+
+.contact-sep {
+	color: var(--border-subtle);
+	font-size: 1.2rem;
+}
+
+/* ===========================
+   RESPONSIVE
+=========================== */
+@media (max-width: 991px) {
+	.profile-bubble {
+		width: 200px;
+		height: 200px;
+		margin-bottom: 40px;
+	}
+}
+
+@media (max-width: 768px) {
+	.hero-section h1 {
+		font-size: 2.4rem;
+	}
+
+	.hero-section {
+		padding: 120px 0 80px;
+	}
+
+	.contact-sep {
+		display: none;
+	}
+
+	.contact-links {
+		flex-direction: column;
+		gap: 12px;
+	}
+}

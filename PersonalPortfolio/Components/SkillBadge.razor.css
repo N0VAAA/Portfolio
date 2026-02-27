@@ -1,0 +1,49 @@
+.skill-badge {
+	display: inline-flex;
+	align-items: center;
+	padding: 0.35rem 0.6rem;
+	border-radius: 0.35rem;
+	font-size: 0.95rem;
+	margin: 0.25rem;
+	gap: 0.5rem;
+}
+.skill-badge .skill-name {
+	font-weight: 600;
+}
+.skill-badge .stars i {
+	margin-left: 0.12rem;
+}
+
+/* category colors */
+.category-frontend {
+	background: #e7f1ff;
+	color: #0d6efd;
+	--star-color: #0d6efd;
+}
+.category-backend {
+	background: #e9f7ee;
+	color: #198754;
+	--star-color: #198754;
+}
+.category-database {
+	background: #f3e9ff;
+	color: #6f42c1;
+	--star-color: #6f42c1;
+}
+.category-devops {
+	background: #fff4e5;
+	color: #fd7e14;
+	--star-color: #fd7e14;
+}
+.category-default {
+	background: #f8f9fa;
+	color: #6c757d;
+	--star-color: #6c757d;
+}
+
+.skill-badge .stars .filled {
+	color: var(--star-color);
+}
+.skill-badge .stars .empty {
+	color: rgba(0, 0, 0, 0.15);
+}

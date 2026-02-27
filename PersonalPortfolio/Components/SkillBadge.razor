@@ -1,0 +1,27 @@
+@using PersonalPortfolio.Models
+@using PersonalPortfolio.Models.Enums
+
+<div class="skill-badge @GetCategoryClass(Skill?.Category)" title="@Skill?.Name">
+    @if (!string.IsNullOrWhiteSpace(Skill?.IconClass))
+    {
+        <i class="@Skill.IconClass me-1" aria-hidden="true"></i>
+    }
+    <span class="skill-name">@Skill?.Name</span>
+</div>
+
+@code {
+    [Parameter] public Skill Skill { get; set; } = new();
+
+    private string GetCategoryClass(SkillCategory? category)
+    {
+        return category switch
+        {
+            SkillCategory.Frontend => "category-frontend",
+            SkillCategory.Backend  => "category-backend",
+            SkillCategory.Database => "category-database",
+            SkillCategory.Tools    => "category-tools",
+            SkillCategory.Testing  => "category-testing",
+            _                      => "category-default"
+        };
+    }
+}
