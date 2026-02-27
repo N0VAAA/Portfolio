@@ -1,0 +1,71 @@
+
+## =========================
+## .NET / Visual Studio
+## =========================
+
+# Build results
+**/bin/
+**/obj/
+**/out/
+**/TestResults/
+
+# User-specific files
+**/*.user
+**/*.userosscache
+**/*.suo
+**/*.userprefs
+**/*.rsuser
+**/*.sln.docstates
+
+# Visual Studio cache / settings
+.vs/
+*.vscode/
+.vscode/
+
+# Rider / JetBrains
+.idea/
+*.sln.iml
+
+# dotnet tools / local
+.dotnet/
+**/.store/
+**/.tools/
+
+# NuGet
+**/packages/
+*.nupkg
+*.snupkg
+
+# ASP.NET Core
+**/appsettings.*.json.user
+**/secrets.json
+**/secrets.*.json
+
+# Logs
+*.log
+
+# Publish
+**/publish/
+**/PublishProfiles/
+
+# EF Core migrations bundles (si générés)
+*.db
+*.db-shm
+*.db-wal
+
+# OS junk
+.DS_Store
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Node (si jamais tu ajoutes un front build)
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Coverage (si tu ajoutes tests)
+coverage/
+*.coverage
+*.coveragexml
